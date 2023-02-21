@@ -4,7 +4,7 @@ import Button from "../UI/Button";
 
 import classes from './AddUser.module.css';
 
-const AddUser = () => {
+const AddUser = (props) => {
     const [usernameValue, setUsernameValue] = useState('');
     const [ageValue, setAgeValue] = useState('');
 
@@ -24,7 +24,13 @@ const AddUser = () => {
         if (+ageValue <= 0) {
             return;
         }
-        console.log(`Username : ${usernameValue}. Age : ${ageValue}`);
+        // Melakukan lifting up dari data yang sudah diinputkan
+        props.onAddUser({
+            id: Math.random().toString(),
+            name: usernameValue,
+            age: ageValue
+        });
+
         setUsernameValue('');
         setAgeValue('');
     }

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Card from "../UI/Card";
 import Button from "../UI/Button";
 import ErrorModal from "../UI/ErrorModal";
-import Wrapper from "../Helpers/Wrapper";
 
 import classes from './AddUser.module.css';
 import styles from '../UI/ErrorModal.module.css';
@@ -54,7 +53,7 @@ const AddUser = (props) => {
     }
 
     return (
-        <Wrapper>
+        <>
             {errorState && <ErrorModal title={errorState.title} message={errorState.message} onOK={errorHandler} />}
             <Card className={classes.input}>
             <form onSubmit={submitHandler}>
@@ -65,7 +64,7 @@ const AddUser = (props) => {
                 <Button type="submit">Add User</Button>
             </form>
             </Card> 
-        </Wrapper>
+        </>
          
     )
 }

@@ -46,6 +46,9 @@ const AddUser = (props) => {
             name: enteredUsername,
             age: enteredAge
         });
+        // Reset input field
+        nameRef.current.value = '';
+        ageRef.current.value = '';
     }
 
     return (
